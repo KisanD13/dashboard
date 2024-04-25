@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './Components/Layout/Layout';
+import DashBoard from './Pages/Dashboard/DashBoard';
+import Kanban from './Pages/Kanban/Kanban';
+import Users from './Pages/Users/Users';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='dashboard'>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path='dashboard' element={<DashBoard />} />
+            <Route path='kanban-trello' element={<Kanban />} />
+            <Route path='users' element={<Users />} />
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }

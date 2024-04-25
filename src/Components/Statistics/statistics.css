@@ -1,0 +1,66 @@
+.dashboard-left-bottom {
+  background: var(--orange-gradient);
+  height: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+}
+
+.dashboard-left-bottom .title {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.dashboard-left-bottom .cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+  margin-top: 0.6rem;
+  height: 6rem;
+  background: linear-gradient(
+    to right,
+    rgba(58, 29, 24, 0.99),
+    rgb(43, 42, 42),
+    rgba(97, 44, 44, 0.99)
+  );
+  border-top: 1px solid rgb(95, 92, 92);
+  border-bottom: 1px solid rgb(95, 92, 92);
+}
+
+.dashboard-left-bottom .cards .first {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.first svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: black;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.dashboard-left-bottom .cards .first .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.dashboard-left-bottom .cards .first .card span:nth-of-type(1) {
+  font-size: 0.6rem;
+}
+.dashboard-left-bottom .cards .first .card span:nth-of-type(2) {
+  font-size: 0.8rem;
+}
+
+.second,
+.third,
+.forth {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: gainsboro;
+  font-size: 0.8rem;
+}

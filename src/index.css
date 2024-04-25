@@ -1,13 +1,60 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --transparent-black: rgba(0, 0, 0, 0.294);
+  --black: #111111;
+  --grey: rgba(235, 235, 235, 0.597);
+  --orange: #ff805d;
+  --orange2: #e96c4a;
+  --orange3: #fb977b;
+  --brown-gradient: linear-gradient(
+    268.35deg,
+    rgba(82, 73, 70, 0.6) 3.47%,
+    rgba(116, 100, 100, 0.7) 60.18%
+  );
+  --orange-gradient: linear-gradient(
+    268.35deg,
+    rgba(97, 44, 44, 0.99) 3.47%,
+    rgba(58, 29, 24, 0.99) 60.18%
+  );
+  --grey-gradient: linear-gradient(
+    180deg,
+    rgba(93, 86, 84, 0.6) 3.47%,
+    rgba(116, 100, 100, 0.7) 60.18%
+  );
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Public Sans', sans-serif;
+}
+
+#dashboard {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--black);
+  color: white;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 80%;
+  }
+}
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 60%;
+  }
+}
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
 }
