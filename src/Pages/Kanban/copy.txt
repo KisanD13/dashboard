@@ -1,0 +1,157 @@
+import React, { useState } from 'react';
+import { IoIosAddCircle } from 'react-icons/io';
+import { MdDelete } from 'react-icons/md';
+import { FaEdit } from 'react-icons/fa';
+import { RxCrossCircled } from 'react-icons/rx';
+
+const CardList = ({
+  title,
+  btnText,
+  active,
+  setActive,
+  setAddTodo,
+  setAddInProgress,
+  setAdCompleted
+}) => {
+  const [addCard, setAddCard] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [inputValueArr, setInputValueArr] = useState([]);
+  const [editInputValue, setEditInputValue] = useState('');
+
+  const dateTime = Date.now();
+  // console.log(dateTime);
+
+  const handleCard = () => {
+    if (inputValue === '') {
+      alert('please enter value');
+    } else {
+      setInputValueArr([
+        ...inputValueArr,
+        { id: dateTime, cardDetails: inputValue, showEdit: false },
+      ]);
+      setInputValue('');
+      setAddCard(false);
+    }
+  };
+
+  // console.log(inputValueArr, editInputValue);
+
+  const functionEdit = (id) => {
+    const updatedArr = inputValueArr.map((ele, index) => {
+      if (ele.id === id) {
+        setEditInputValue(ele.cardDetails);
+        return { ...ele, showEdit: !ele.showEdit };
+      }
+      return ele;
+    });
+    setInputValueArr(updatedArr);
+  };
+
+  const editUpdate = (id) => {
+    const updatedArr = inputValueArr.map((ele) => {
+      if (ele.id === id) {
+        return { ...ele, cardDetails: editInputValue, showEdit: !ele.showEdit };
+      }
+      return ele;
+    });
+    setInputValueArr(updatedArr);
+    setEditInputValue('');
+  };
+
+  const deleteCard = (id) => {
+    const updatedArr = inputValueArr.filter((ele) => ele.id !== id);
+    setInputValueArr(updatedArr);
+  };
+
+  function drag(e, ele) {
+    // console.log(e.target);
+    e.dataTransfer.setData('text', JSON.stringify([e.target.id, ele]));
+    console.log(ele);
+  }
+
+  function allowDrop(e) {
+    e.preventDefault();
+    // console.log('object1');
+  }
+
+  function drop(e) {
+    let data = JSON.parse(e.dataTransfer.getData('text'));
+    let data1 = e.dataTransfer.getData('text');
+    // if (e.target.classList.value === 'card-list') {
+    //   console.log('no transfer');
+    //   e.preventDefault();
+    e.target.appendChild(document.getElementById(data[0]));
+    // } else {
+    //   e.preventDefault();
+    // }
+    e.target.remove(document.getElementById(data[0]));
+
+    setInputValueArr([...inputValueArr, data1]);
+    console.log(data);
+  }
+
+  return (
+    <div className='todo'>
+      <h1>{title}</h1>
+      {!addCard && (
+        <button onClick={() => setAddCard(true)} className='addCardBtn'>
+          {btnText}
+        </button>
+      )}
+
+      {addCard && (
+        <div className='addInput'>
+          <input
+            type='text'
+            placeholder='Add Card'
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <IoIosAddCircle onClick={handleCard} />
+          <RxCrossCircled onClick={() => setAddCard(false)} />
+        </div>
+      )}
+
+      <div
+        className='card-list'
+        onDrop={(e) => drop(e)}
+        onDragOver={(e) => allowDrop(e)}
+      >
+        {inputValueArr.map((ele, index) => {
+          return (
+            <div
+              id={ele.id}
+              key={index}
+              className='eachCard'
+              draggable='true'
+              onDragStart={(e) => drag(e, ele)}
+            >
+              {ele.showEdit ? (
+                <div>
+                  <input
+                    type='text'
+                    value={editInputValue}
+                    onChange={(e) => setEditInputValue(e.target.value)}
+                  />
+                  <button onClick={() => editUpdate(ele.id)}>Update</button>
+                </div>
+              ) : (
+                <p>{ele.cardDetails}</p>
+              )}
+              <div className='edit-delete'>
+                {!ele.showEdit && (
+                  <MdDelete onClick={() => deleteCard(ele.id)} />
+                )}
+                {!ele.showEdit && (
+                  <FaEdit onClick={() => functionEdit(ele.id)} />
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default CardList;

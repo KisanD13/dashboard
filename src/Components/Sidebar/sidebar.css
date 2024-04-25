@@ -1,0 +1,27 @@
+.sidebar {
+  /* width: 9rem; */
+  /* background-color: blue; */
+  box-sizing: border-box;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5);
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  flex: 1;
+  gap: 5rem;
+  padding: 10rem 2rem;
+}
+
+a svg {
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+.sidebar img {
+  height: 6rem;
+  width: 6rem;
+}

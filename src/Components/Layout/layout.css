@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+}
+
+.right-container {
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
+}
+
+.top-right-container {
+  display: flex;
+  height: 5rem;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.top-right-first {
+  flex: 1;
+  font-size: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(1, 1, 1, 1),
+    var(--grey),
+    rgba(1, 1, 1, 1)
+  );
+
+  display: flex;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.top-right-second {
+  flex: 1;
+  /* height: 13rem; */
+  /* width: 13rem; */
+
+  background: linear-gradient(
+    90deg,
+    rgba(1, 1, 1, 1),
+    var(--orange2),
+    rgba(1, 1, 1, 1)
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.top-right-second div {
+  background-color: rgba(255, 255, 255, 0.496);
+  height: 2rem;
+  width: 16rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 0 1rem;
+}
+
+.top-right-second div svg {
+  margin-top: 0.1rem;
+}
+
+.top-right-second div .search {
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  width: 12rem;
+  height: 1.5rem;
+  border: none;
+  background: transparent;
+}
+.top-right-second .search:focus {
+  outline: none;
+}
+
+.top-right-third {
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(1, 1, 1, 1),
+    var(--grey),
+    rgba(1, 1, 1, 1)
+  );
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  align-items: center;
+}
+
+.top-right-third div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-right-third div img {
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid green;
+  gap: 0.5rem;
+}
+
+.top-right-third div div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.top-right-third div span {
+  font-size: 0.8rem;
+}
+.bottom-right-container {
+  margin: auto;
+  /* display: flex;
+  height: 100%;
+  align-items: center; */
+}

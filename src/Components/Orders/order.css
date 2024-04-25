@@ -1,0 +1,77 @@
+.dashboard-right {
+  width: 38%;
+  padding: 0.8rem 2rem;
+  background: var(--grey-gradient);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-right-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.dashboard-right-head img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.stats {
+  height: 5rem;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgb(111, 111, 111),
+    transparent
+  );
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stats span:nth-of-type(1) {
+  color: rgb(7, 54, 7);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.dashboard-right .orders {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.dashboard-right .orders .order {
+  display: flex;
+  flex-direction: column;
+  /* gap: 2rem; */
+}
+
+.dashboard-right .orders .order div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dashboard-right .orders .order div:nth-of-type(1) span:nth-of-type(1) {
+  font-size: 1.1rem;
+}
+
+.dashboard-right .orders .order div:nth-of-type(1) span:nth-of-type(2) {
+  color: green;
+  font-weight: 800;
+}
+
+.dashboard-right .orders .order div:nth-of-type(2) {
+  font-size: 0.7rem;
+}
